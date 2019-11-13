@@ -1,12 +1,15 @@
-import getpass
+from cmd import Cmd
 import zerojudge
 
-def Initalize():
-    zerojudge.user['account'] = input('Zerojudge username: ') 
-    zerojudge.user['passwd'] = getpass.getpass('Account password: ')
-    zerojudge.user['g-recaptcha'] = input('Recaptcha: ')
-    
-    zerojudge.Login()
+class commands(Cmd):
+    intro = 'Welcome to zerojudge-cli. Type help or ? to list commands.\n'
+    prompt = '>>> '
+
+    def do_login(self, arg):
+        zerojudge.Login()
+
+    def do_submit(self, arg):
+        pass
 
 if __name__ == '__main__':
-    Initalize()
+    commands().cmdloop()
