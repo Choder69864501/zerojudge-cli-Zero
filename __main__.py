@@ -9,7 +9,10 @@ class commands(Cmd):
         zerojudge.Login()
 
     def do_submit(self, arg):
-        pass
+        zerojudge.Submit(*arg.split(' '))
+
+def parse(arg):
+    return tuple(arg.split(' '))
 
 if __name__ == '__main__':
     commands().cmdloop()

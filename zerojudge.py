@@ -9,14 +9,12 @@ user = None
 
 
 def Login():
-
     global user
-
     if user is not None:
         print('You are already logged!!')
     else:
-        username = input('Please input your username: ') 
-        password = getpass.getpass('Please input your password: ') 
+        username = input('Please input your username: ') or 'tobtob' 
+        password = getpass.getpass('Please input your password: ') or 'botbot'
         recaptchaResponse = input('Please input the recaptcha response, you can use Shift+Insert to paste: ') 
 
         loginUrl = 'https://zerojudge.tw/Login'
@@ -34,8 +32,45 @@ def Login():
         if requestClient.post(loginUrl, user, headers):
             print('Login success!')
 
-def Submit():
-    submitUrl = 'https://zerojudge.tw/Solution.api'
+def Submit(problem, path, lang='CPP'):
+    if not isLogged():
+        return
+
+    lang = lang.upper()
+    if lang is 'C++':  # special case
+        lang = 'CPP'
+   
+    if lang not in ['C', 'CPP', 'JAVA', 'PASCAL', 'PYTHON']:
+        print('Your language is not supported, please choose another language!!') 
+    if lang in ['C', 'CPP', 'JAVA', 'PASCAL', 'PYTHON']:
+        contents = readFile(path)
+        if contents:
+            submitUrl = 'https://zerojudge.tw/Solution.api'
+            data = {
+                'action': 'SubmitCode',
+                'language': lang,
+                'code': contents,
+                'contestid': 0,
+                'problemid': problem,
+            }
+            if requestClient.post(submitUrl, data):
+                print('Submit success!')
+
+
+def readFile(path):
+    contents = None 
+    try:
+        contents = open(path, "r").read()
+    except (OSError, IOError) as e:
+        print('File not found!')
+    return contents
+
+def isLogged():
+    global user
+    if user is None:
+        print('Please login first!')
+        return False
+    return True
 
 
 
