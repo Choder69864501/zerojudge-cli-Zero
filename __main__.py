@@ -34,8 +34,10 @@ class commands(cmd.Cmd):
             zerojudge.Submit(*arg)
 
     def do_view(self, arg):
+        'View specific problem: view <problemid>'
+
         arg = parse(arg) 
-        if len(arg) < 1:
+        if len(arg) < 1 or arg[0] == '':
             print('Too few arguments!') 
             print('Usage: view <problemid>')
         elif len(arg) > 2:
