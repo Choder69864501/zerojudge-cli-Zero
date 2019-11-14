@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup as bs
+import webbrowser
 
 import requestClient 
 
@@ -29,7 +30,7 @@ def Login(username, password, recaptchaResponse):
 def Submit(problem, path, lang='CPP'):
     path = path.strip('"')
     lang = lang.upper()
-    if lang is 'C++':  # special case
+    if lang == 'C++':  # special case
         lang = 'CPP'
    
     if lang not in ['C', 'CPP', 'JAVA', 'PASCAL', 'PYTHON']:
@@ -48,6 +49,10 @@ def Submit(problem, path, lang='CPP'):
             if requestClient.post(submitUrl, data):
                 print('Submit success!')
 
+def View(problem):
+    problemUrl = 'https://zerojudge.tw/ShowProblem?problemid=' + problem
+    webbrowser.open(problemUrl)
+
 def readFile(path):
     contents = None 
     try:
@@ -59,6 +64,4 @@ def readFile(path):
 def isLogged():
     global Logged
     return Logged
-
-
 

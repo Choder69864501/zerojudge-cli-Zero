@@ -33,6 +33,17 @@ class commands(cmd.Cmd):
         else:
             zerojudge.Submit(*arg)
 
+    def do_view(self, arg):
+        arg = parse(arg) 
+        if len(arg) < 1:
+            print('Too few arguments!') 
+            print('Usage: view <problemid>')
+        elif len(arg) > 2:
+            print('Too many arguments!') 
+            print('Usage: view <problemid>')
+        else:
+            zerojudge.View(*arg)
+
     def do_exit(self, arg):
         return True
 
