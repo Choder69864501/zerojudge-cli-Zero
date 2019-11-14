@@ -16,10 +16,8 @@ def post(url, data, headers=headers):
         res = session.post(url, headers=headers, data=data)
         res.raise_for_status()
         success = True
-    except HTTPError as http_err:
-        print(f'HTTP error occurred: {http_err}')  
-    except Exception as err:
-        print(f'Other error occurred: {err}') 
+    except requests.exceptions.RequestException as e:
+        print(e)
     return success
 
 def get(url):
