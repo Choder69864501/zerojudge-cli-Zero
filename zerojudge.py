@@ -1,41 +1,33 @@
-import getpass
 from bs4 import BeautifulSoup as bs
-from cmd import Cmd
 
 import requestClient 
 
 
 user = None
+Logged = False
 
 
-def Login():
+def Login(username, password, recaptchaResponse):
     global user
-    if user is not None:
-        print('You are already logged!!')
-    else:
-        username = input('Please input your username: ') or 'tobtob' 
-        password = getpass.getpass('Please input your password: ') or 'botbot'
-        recaptchaResponse = input('Please input the recaptcha response, you can use Shift+Insert to paste: ') 
+    global Logged
 
-        loginUrl = 'https://zerojudge.tw/Login'
-
-        user = {
-            'account': username,
-            'passwd': password,
-            'g-recaptcha-response': recaptchaResponse,
-        }
-        headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36(KHTML,like Gecko) Chrome/69.0.3497.100 Safari/537.36',
-        }
-        requestClient.Initialize()
-        if requestClient.post(loginUrl, user, headers):
-            print('Login success!')
+    user = {
+        'account': username,
+        'passwd': password,
+        'g-recaptcha-response': recaptchaResponse,
+    }
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36(KHTML,like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+    }
+    loginUrl = 'https://zerojudge.tw/Login'
+    requestClient.Initialize()
+    if requestClient.post(loginUrl, user, headers):
+        print('Login success!')
+        Logged = True
 
 def Submit(problem, path, lang='CPP'):
-    if not isLogged():
-        return
-
+    path = path.strip('"')
     lang = lang.upper()
     if lang is 'C++':  # special case
         lang = 'CPP'
@@ -56,7 +48,6 @@ def Submit(problem, path, lang='CPP'):
             if requestClient.post(submitUrl, data):
                 print('Submit success!')
 
-
 def readFile(path):
     contents = None 
     try:
@@ -66,11 +57,8 @@ def readFile(path):
     return contents
 
 def isLogged():
-    global user
-    if user is None:
-        print('Please login first!')
-        return False
-    return True
+    global Logged
+    return Logged
 
 
 
