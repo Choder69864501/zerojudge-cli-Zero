@@ -20,8 +20,7 @@ def post(url, data, headers=headers):
         print(f'HTTP error occurred: {http_err}')  
     except Exception as err:
         print(f'Other error occurred: {err}') 
-    finally:
-        return success
+    return success
 
 def get(url):
     global session
