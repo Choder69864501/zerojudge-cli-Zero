@@ -52,4 +52,9 @@ Enjoy!
 - 查看全部人以及特定題目狀態
 - 顯示提交詳細狀態(time, memory, size, code length)
 
+## Related
+
+- [zerojudge-cli](https://github.com/Choder69864501/zerojudge-cli) - 最初始版本
+- [kobo-book-downloader](https://github.com/TnS-hun/kobo-book-downloader) - 參考reCAPTCHA登入教學
+- [uva-node](https://github.com/lucastan/uva-node) - 參考部分功能實作 
 
