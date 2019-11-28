@@ -20,9 +20,14 @@ def post(url, data, headers=headers):
         print(e)
     return success
 
-def get(url):
-    global session
-    res = session.get(url)
-    return res
-
+def get(url, data='', headers=headers):
+    success = False
+    try:
+        global session
+        res = session.get(url, headers=headers, data=data)
+        res.raise_for_status()
+        success = True
+    except requests.exceptions.RequestException as e:
+        print(e)
+    return {'success': success, 'res': res}
 
