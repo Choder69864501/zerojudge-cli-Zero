@@ -4,6 +4,7 @@
 ## Introdution
 
 這是一個能夠用python去 [`zerojudge`](https://zerojudge.tw/) 互動的簡易小程式 
+
 A simple tool to interact with [`zerojudge`](https://zerojudge.tw/) from the command-line
 
 
@@ -11,6 +12,7 @@ A simple tool to interact with [`zerojudge`](https://zerojudge.tw/) from the com
 ## Installations
 
 `zerojudge-cli-Zero` 需要 [Python 3.X](https://www.python.org/), 你可以用`python --version`查看你的版本
+
 `zerojudge-cli-Zero` requires [Python 3.X](https://www.python.org/), you can check your python version with `python --version`
 
 ```bash
@@ -29,7 +31,9 @@ git clone https://github.com/Choder69864501/zerojudge-cli-Zero
 ## Usage
 
 直接執行下載好或是解壓縮好的資料夾:
+
 Just execute the folder you have downloaded or extracted:
+
 `python zerojudge-cli-Zero` 
 
 Then you can play with zerojudge in your terminal!
