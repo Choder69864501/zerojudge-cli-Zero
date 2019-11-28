@@ -11,8 +11,8 @@ class commands(cmd.Cmd):
         if zerojudge.isLogged():
             print('You are already logged!!')
             return
-        username = input('Please input your username: ') or 'tobtob' 
-        password = getpass.getpass('Please input your password: ') or 'botbot'
+        username = input('Please input your username: ') or 'wertwert' 
+        password = getpass.getpass('Please input your password: ') or 'wertwert'
         recaptchaResponse = input('Please input the recaptcha response, you can use Shift+Insert to paste: ').strip('"')
 
         zerojudge.Login(username, password, recaptchaResponse)
@@ -45,6 +45,11 @@ class commands(cmd.Cmd):
             print('Usage: view <problemid>')
         else:
             zerojudge.View(*arg)
+
+    def do_dashboard(self, arg):
+        'View submissions: dashboard'   
+        zerojudge.Dashboard()
+
 
     def do_exit(self, arg):
         return True
