@@ -1,7 +1,7 @@
 # zerojudge-cli-Zero
 ![](icon.ico)
 
-## Introdution
+## Introduction
 
 這是一個能夠用python去 [zerojudge](https://zerojudge.tw/) 互動的簡易小程式 
 
