@@ -11,8 +11,20 @@ class commands(cmd.Cmd):
         if zerojudge.isLogged():
             print('You are already logged!!')
             return
-        username = input('Please input your username: ') or 'wertwert' 
-        password = getpass.getpass('Please input your password: ') or 'wertwert'
+        username = input('Please input your username: ')
+        password = getpass.getpass('Please input your password: ')
+
+        print("""
+Open "https://zerojudge.tw/Login" in a private/incognito window in your browser, wait till the page loads (do not login!),
+then tick "I'm not a robot" reCAPTCHA checkbox, you sometimes may need to answer some questions.
+After the green checkmark appear, open the developer tools (use F12 in Firefox/Chrome),
+select the console tab, and paste this line of code there and then press Enter there in the browser.  
+
+    grecaptcha.getResponse()
+
+A sequence of text should show up below what you pasted just now. Copy the response (the line below "Captcha response:")
+and paste it here.
+        """)
         recaptchaResponse = input('Please input the recaptcha response, you can use Shift+Insert to paste: ').strip('"')
 
         zerojudge.Login(username, password, recaptchaResponse)
