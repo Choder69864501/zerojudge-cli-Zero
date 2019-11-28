@@ -7,8 +7,6 @@
 
 A simple tool to interact with [zerojudge](https://zerojudge.tw/) from the command-line
 
-
-
 ## Installations
 
 `zerojudge-cli-Zero` 需要 [Python 3.X](https://www.python.org/), 你可以用`python --version`查看你的版本
@@ -27,7 +25,6 @@ pip install --user requests
 git clone https://github.com/Choder69864501/zerojudge-cli-Zero
 ```
 
-
 ## Usage
 
 直接執行下載好或是解壓縮好的資料夾:
@@ -37,8 +34,6 @@ Just execute the folder you have downloaded or extracted:
 `python zerojudge-cli-Zero` 
 
 Enjoy!
-
-
 
 ## Features
 
@@ -58,3 +53,8 @@ Enjoy!
 - [kobo-book-downloader](https://github.com/TnS-hun/kobo-book-downloader) - 參考reCAPTCHA登入教學
 - [uva-node](https://github.com/lucastan/uva-node) - 參考部分功能實作 
 
+## Maintainers
+
+- [Choder69864501](https://github.com/Choder69864501)
+- [Samuel21119](https://github.com/samuel21119)
+- [Cycatz](https://github.com/Cycatz)
