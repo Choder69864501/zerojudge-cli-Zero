@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-from colorama import Fore, Style
 import webbrowser
 import requestClient 
 
