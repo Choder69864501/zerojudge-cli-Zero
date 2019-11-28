@@ -36,7 +36,8 @@ Just execute the folder you have downloaded or extracted:
 
 `python zerojudge-cli-Zero` 
 
-Then you can play with zerojudge in your terminal!
+Enjoy!
+
 
 
 ## Features
