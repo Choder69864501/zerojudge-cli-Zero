@@ -3,9 +3,9 @@
 
 ## Introdution
 
-這是一個能夠用python去 [`zerojudge`](https://zerojudge.tw/) 互動的簡易小程式 
+這是一個能夠用python去 [zerojudge](https://zerojudge.tw/) 互動的簡易小程式 
 
-A simple tool to interact with [`zerojudge`](https://zerojudge.tw/) from the command-line
+A simple tool to interact with [zerojudge](https://zerojudge.tw/) from the command-line
 
 
 
