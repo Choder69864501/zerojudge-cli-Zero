@@ -106,7 +106,7 @@ def readFile(path):
     contents = None 
     found = True
     try:
-        contents= open(path, "r").read()
+        contents = open(path, "r").read()
     except (OSError, IOError) as e:
         print('File not found!')
         found = False 
