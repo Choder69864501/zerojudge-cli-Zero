@@ -36,7 +36,6 @@ def Submit(problem, path, lang='CPP'):
         print('Your language is not supported, please choose another language!!') 
     if lang in ['C', 'CPP', 'JAVA', 'PASCAL', 'PYTHON']:
         contents = readFile(path)
-        print(path)
         if contents:
             submitUrl = 'https://zerojudge.tw/Solution.api'
             data = {
