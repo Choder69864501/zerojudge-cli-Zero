@@ -104,10 +104,16 @@ def Dashboard(problem=''):
 
 def readFile(path):
     contents = None 
+    found = True
     try:
-        contents = open(path, "r").read()
+        contents= open(path, "r").read()
     except (OSError, IOError) as e:
         print('File not found!')
+        found = False 
+
+    if found and not contents:
+        print('File is empty!')
+
     return contents
 
 def isLogged():
